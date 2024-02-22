@@ -16,7 +16,18 @@ const fonter = require('gulp-fonter-unx');
 const ttf2woff2 = require('gulp-ttf2woff2');
 const svgSprite = require('gulp-svg-sprite');
 const include = require('gulp-include');
+
+
+
+
+const gulp = require('gulp');
 const ghPages = require('gulp-gh-pages');
+
+gulp.task('deploy', function() {
+  return gulp.src('./**/*')
+    .pipe(ghPages());
+});
+
 
 
 
