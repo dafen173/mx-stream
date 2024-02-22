@@ -16,6 +16,7 @@
     "gulp-clean": "^0.4.0",
     "gulp-concat": "^2.6.1",
     "gulp-fonter-unx": "^0.3.0",
+    "gulp-gh-pages": "^0.5.4",
     "gulp-imagemin": "^7.1.0",
     "gulp-include": "^2.4.1",
     "gulp-newer": "^1.4.0",
@@ -24,9 +25,9 @@
     "gulp-ttf2woff2": "^4.0.1",
     "gulp-uglify-es": "^3.0.0",
     "gulp-webp": "^4.0.1",
+    "normalize.css": "^8.0.1",
     "sass": "^1.69.5",
-    "swiper": "^11.0.5",
-    "normalize.css": "^8.0.1"
+    "swiper": "^11.0.5"
   },
   "dependencies": {
     "fullpage.js": "^4.0.20",

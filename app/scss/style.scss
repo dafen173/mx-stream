@@ -119,6 +119,7 @@ body {
     @extend %ubuntu-light;
     font-size: 17px;
     line-height: 26px;
+    background-color: #000;
 }
 
 //=======================================================
@@ -390,6 +391,25 @@ body {
     }
 }
 
+
+/* ======================= CARD__SHOW SECTION ======================= */
+
+.appearing_section {
+    opacity: 0;
+    transform: scale(85%);
+    transition: 2s;
+}
+
+.appearing_section.show_appearing {
+    opacity: 1;
+    transform: scale(100%);
+    transition: 2s;
+}
+// ====================================================================
+
+
+
+
 .products{
     &__inner{
         display: flex;
@@ -457,6 +477,316 @@ body {
         }
     }
 }
+
+
+
+
+.benefits__carousel{
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+
+    position: relative;
+}
+
+.benefits__carousel__item{
+    position: absolute;
+    inset: 0 0 0 0;
+}
+
+.benefits__carousel__item img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.benefits__carousel__content{
+    position: absolute;
+    top: 20%;
+    width: 1140px;
+    max-width: 80%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding-right: 30%;
+    box-sizing: border-box;
+    color: #fff;
+    text-shadow: 0 5px 10px #0004;
+}
+.benefits__carousel__author{
+    font-weight: bold;
+    letter-spacing: 10px;
+}
+.benefits__carousel__title,
+.benefits__carousel__topic{
+    font-weight: bold;
+    font-size: 5em;
+    line-height: 1.3em;
+}
+.benefits__carousel__topic{
+    color: #f1683e;
+}
+.benefits__carousel__buttons{
+    display: grid;
+    grid-template-columns: repeat(2, 130px);
+    grid-auto-rows: 40px;
+    gap: 5px;
+    margin-top: 20px;
+}
+.benefits__carousel__content button{
+    border: none;
+    background-color: #eee;
+    letter-spacing: 3px;
+    font-weight: 500;
+}
+.benefits__carousel__content button:nth-child(2){
+    background-color: transparent;
+    color: #eee;
+    border: 1px solid #eee;
+}
+.benefits__thumbnail{
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    width: max-content;
+    z-index: 100;
+    display: flex;
+    gap: 20px;
+}
+.benefits__thumbnail__item{
+    width: 150px;
+    height: 220px;
+    flex-shrink: 0;
+    position: relative;
+}
+.benefits__thumbnail__item img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+}
+.benefits__thumbnail__content{
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+}
+.benefits__thumbnail__title{
+    font-weight: bold;
+}
+.benefits__arrows{
+    position: absolute;
+    top: 80%;
+    right: 52%;
+    width: 300px;
+    max-width: 30%;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+.benefits__arrows button{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #eee4;
+    border: none;
+    font-family: monospace;
+    color: #fff;
+    font-weight: bold;
+    font-size: large;
+    transition: .5s;
+    z-index: 100;
+}
+.benefits__arrows button:hover{
+    background-color: #eee;
+    color: #555;
+    cursor: pointer;
+}
+.benefits__carousel__item:nth-child(1){
+    z-index: 1;
+}
+.benefits__carousel__item:nth-child(1) .benefits__carousel__author,
+.benefits__carousel__item:nth-child(1) .benefits__carousel__title,
+.benefits__carousel__item:nth-child(1) .benefits__carousel__topic,
+.benefits__carousel__item:nth-child(1) .benefits__carousel__description,
+.benefits__carousel__item:nth-child(1) .benefits__carousel__buttons {
+    transform: translateY(50px);
+    filter: blur(20px);
+    opacity: 0;
+    animation: showContent .5s 1s linear 1 forwards;
+}
+@keyframes showContent{
+    to{
+        opacity: 1;
+        filter: blur(0);
+        transform: translateY(0);
+    }
+}
+.benefits__carousel__item:nth-child(1) .benefits__carousel__title{
+    animation-delay: 1.2s;
+}
+.benefits__carousel__item:nth-child(1) .benefits__carousel__topic{
+    animation-delay: 1.4s;
+}
+.benefits__carousel__item:nth-child(1) .benefits__carousel__description{
+    animation-delay: 1.6s;
+}
+.benefits__carousel__item:nth-child(1) .benefits__carousel__buttons{
+    animation-delay: 1.8s;
+}
+
+.benefits__carousel__item::before {
+    content: "";
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    position: absolute;
+    opacity: .9;
+    background: linear-gradient(108deg, rgba(23, 26, 28, 0.72) 0%, #0e0d0d 100%);
+}
+
+
+
+// effect next click
+.benefits__carousel__next 
+.benefits__carousel__list 
+.benefits__carousel__item:nth-child(1) img {
+    width: 150px;
+    height: 220px;
+    position: absolute;
+    left: 50%;
+    bottom: 50px;
+    border-radius: 20px;
+    animation: showImage .5s linear 1 forwards;
+}
+@keyframes showImage{
+    to{
+        width: 100%;
+        height: 100%;
+        left: 0;
+        bottom: 0;
+        border-radius: 0;
+    }
+}
+.benefits__carousel__next
+.benefits__thumbnail
+.benefits__thumbnail__item:nth-last-child(1) {
+    width: 0;
+    overflow: hidden;
+    animation: showThumbnail .5s linear 1 forwards;
+}
+@keyframes showThumbnail{
+    to{
+        width: 150px;
+    }
+}
+.benefits__carousel__next
+.benefits__thumbnail{
+    transform: translateX(150px);
+    animation: transformThumbnail .5s linear 1 forwards;
+}
+@keyframes transformThumbnail{
+    to{
+        transform: translateX(0);
+    }
+}
+// effect prev click
+.benefits__carousel__prev
+.benefits__carousel__list
+.benefits__carousel__item:nth-child(2) {
+    z-index: 2;
+}
+.benefits__carousel__prev
+.benefits__carousel__list
+.benefits__carousel__item:nth-child(2) img {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    animation: outImage .5s linear 1 forwards;
+}
+@keyframes outImage {
+    to{
+        width: 150px;
+        height: 220px;
+        border-radius: 20px;
+        left: 50%;
+        bottom: 50px;
+    }
+}
+.benefits__carousel__prev
+.benefits__thumbnail
+.benefits__carousel__item:nth-child(1) {
+    width: 0;
+    overflow: hidden;
+    opacity: 0;
+    animation: showThumbnail .5s linear 1 forwards;
+}
+.benefits__carousel__prev
+.benefits__carousel__list
+.benefits__carousel__item:nth-child(2)
+.benefits__carousel__author,
+.benefits__carousel__prev
+.benefits__carousel__list
+.benefits__carousel__item:nth-child(2)
+.benefits__carousel__title,
+.benefits__carousel__prev
+.benefits__carousel__list
+.benefits__carousel__item:nth-child(2)
+.benefits__carousel__topic,
+.benefits__carousel__prev
+.benefits__carousel__list
+.benefits__carousel__item:nth-child(2)
+.benefits__carousel__description,
+.benefits__carousel__prev
+.benefits__carousel__list
+.benefits__carousel__item:nth-child(2)
+.benefits__carousel__buttons {
+    animation: contentOut 1.5s linear 1 forwards;
+}
+@keyframes contentOut{
+    to{
+        transform: translateY(-150px);
+        filter: blur(20px);
+        opacity: 0;
+    }
+}
+.benefits__carousel__next
+.benefits__arrows button,
+.benefits__carousel__prev
+.benefits__arrows button {
+    // pointer-events: none;
+}
+
+// time
+.benefits__time{
+    width: 0%;
+    height: 3px;
+    background-color: #f1683a;
+    position: absolute;
+    z-index: 100;
+    top: 0;
+    left: 0;
+}
+.benefits__carousel__next .benefits__time,
+.benefits__carousel__prev .benefits__time {
+    width: 100%;
+    animation: timeRunning 2s linear 1 forwards;
+}
+@keyframes timeRunning {
+    to{
+        width: 0;
+    }
+}
+@media screen and (max-width: 678px) {
+    .benefits__carousel__content{
+        padding-right: 0;
+    }
+    .benefits__carousel__title{
+        font-size: 30px;
+    }
+}
+
+
+
 
 .benefits{
     &__items{

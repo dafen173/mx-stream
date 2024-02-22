@@ -34,6 +34,8 @@ $(function(){
 
 
 
+//==================== SECTION ACCORDION EFFECT CHAPTER ================================
+
 const questions__items = document.querySelectorAll('.questions__item');
 
 questions__items.forEach( (item) => {
@@ -41,6 +43,78 @@ questions__items.forEach( (item) => {
         item.classList.toggle('active');
     })
 });
+
+
+
+
+//==================== SECTION FLASHING EFFECT CHAPTER ================================
+
+const cards = document.querySelectorAll(".appearing_section")
+
+const observer = new IntersectionObserver(
+    entries => {
+        entries.forEach(entry => {
+            entry.target.classList.toggle('show_appearing', entry.isIntersecting)
+        })
+    },
+    {
+        threshold: 0.3,
+    }
+)
+
+cards.forEach(card => {
+    observer.observe(card)
+})
+
+//=======================================================================================
+
+
+//========================= SECTION SLIDER OF BENEFITS EFFECT =======================================
+
+
+let nextDom = document.getElementById('benefits__next');
+let prevDom = document.getElementById('benefits__prev');
+let corouselDom = document.querySelector('.benefits__carousel');
+let listItemDom = document.querySelector('.benefits__carousel__list');
+let thumbnailDom = document.querySelector('.benefits__thumbnail');
+
+nextDom.onclick = function(){
+    showSlider('benefits__next');
+}
+prevDom.onclick = function(){
+    showSlider('benefits__prev');
+}
+
+let timeRunning = 1000;
+let runTimeOut;
+function showSlider(type){
+    let itemSlider = document.querySelectorAll('.benefits__carousel__item');
+    let itemThumbnail = document.querySelectorAll('.benefits__thumbnail__item');
+
+    if(type === 'benefits__next'){
+        listItemDom.appendChild(itemSlider[0]);
+        thumbnailDom.appendChild(itemThumbnail[0]);
+        corouselDom.classList.add('benefits__carousel__next');
+    } else {
+        let positionLastItem = itemSlider.length - 1;
+        listItemDom.prepend(itemSlider[positionLastItem]);
+        thumbnailDom.prepend(itemThumbnail[positionLastItem]);
+        corouselDom.classList.add('benefits__carousel__prev');
+    }
+
+    clearTimeout(runTimeOut);
+    runTimeOut = setTimeout(() => {
+        corouselDom.classList.remove('benefits__carousel__next');
+        corouselDom.classList.remove('benefits__carousel__prev');
+    }, timeRunning)
+}
+
+
+
+
+
+
+
 
 
 
