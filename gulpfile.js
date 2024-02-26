@@ -16,23 +16,14 @@ const fonter = require('gulp-fonter-unx');
 const ttf2woff2 = require('gulp-ttf2woff2');
 const svgSprite = require('gulp-svg-sprite');
 const include = require('gulp-include');
-
-
-
-
 const gulp = require('gulp');
 const ghPages = require('gulp-gh-pages');
 
-// gulp.task('deploy', function() {
-//   return gulp.src('./**/*')
-//     .pipe(ghPages());
-// });
+
 gulp.task('deploy', function() {
     return gulp.src('./dist/**/*')
       .pipe(ghPages());
 });
-
-
 
 function pages(){
     return src('app/pages/*.html')
@@ -144,7 +135,7 @@ function building() {
     return src([
         'app/css/style.min.css',
         'app/images/*.*',
-        '!app/images/*.svg',
+        // '!app/images/*.svg',
         // 'app/images/sprite.svg',
         'app/fonts/*.*',
         'app/js/main.min.js',
@@ -167,4 +158,5 @@ exports.building = building;
 exports.build = series(cleanDist, building);
 // exports.default = parallel(styles, scripts, browsersync, watching);
 exports.default = parallel(styles, images, scripts, pages, watching);
+// exports.default = parallel(styles, images, sprite, scripts, pages, watching);
 
