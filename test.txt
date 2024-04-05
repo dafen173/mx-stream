@@ -27,3 +27,23 @@
 
 fill-opacity=".5"
 
+
+// ==============
+
+gulp build
+
+gulp deploy
+
+
+
+
+@media (max-width: 1366px){
+
+    .menu__list-link:hover::before,
+    .menu__list-link:hover::after {
+        width: 0;
+    }
+
+}
+
+

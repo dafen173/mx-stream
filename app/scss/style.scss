@@ -1266,17 +1266,19 @@ body {
 @media (max-width: 1366px){
     .header{
         background: rgba(0, 0, 0, .5);
-        padding: 25px 0;
+        // padding: 25px 0;
         top: 0;
     }
     body{
         font-style: 16px;
         line-height: 22px;
     }
-    .menu__list-link:hover::before,
-    .menu__list-link:hover::after{
-        width: 0;
-    }
+
+
+   
+
+
+    
     .top__title{
         font-size: 75px;
         line-height: 90px;
@@ -1423,11 +1425,16 @@ body {
         }
     }
 
-
-    .menu__list-phone,
-    .menu__list-link{
+    .menu__list-phone, 
+    .menu__list-link {
         display: block;
     }
+
+    .menu__list-link:hover::before,
+    .menu__list-link:hover::after {
+        width: 0;
+    }
+
     .menu__list-phone{
         padding-top: 33px;
         position: relative;
@@ -1632,7 +1639,7 @@ body {
         height: 46px;
     }
     .benefits__carousel__content {
-        top: 23%;
+        top: 28%;
     }
 
     .specification__inner{
